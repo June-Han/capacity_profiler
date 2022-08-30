@@ -163,5 +163,5 @@ if (Get-PSEnvironment)
 }
 else
 {
-    Write-Host '[INFO] Your seetings do not seem to meet the Rerequisites.  Please make sure that you go through Pre-Requisite Second of the REAMDE !!' -ForegroundColor Red 
+    Write-Host '[INFO] Your settings do not seem to meet the Rerequisites.  Please make sure that you go through Pre-Requisite Second of the REAMDE !!' -ForegroundColor Red 
 }
