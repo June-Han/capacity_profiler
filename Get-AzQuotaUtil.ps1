@@ -204,31 +204,5 @@ Remove-Item -Path "$temppath/" -Recurse -Force
 Write-Host "`n===== Profiling completed =====`n" 
 Get-ChildItem -Path $datapath
 
-# Importing the CSV file to PowerBI
-Write-Host "`n===== Importing CSV file to PowerBI =====`n" 
 
-#Installing PowerBIPS module
-Install-Module PowerBIPS
-#Importing PowerBIPS module
-Import-Module -Name PowerBIPS
-
-Get-ChildItem -Path $datapath -Filter "*.csv" |ForEach-Object {
-    $file=$_               
-
-    #Import csv and add column with filename
-    $data = Import-Csv $file.FullName | Select-Object @{Label="File";Expression={$file.Name}}, *
-
-    # Send data to PowerBI
-    $data |  Out-PowerBI -dataSetName "Subscription_Data" -tableName "Resources" 
-    -types @{
-        "Resources.datetime_in_utc"="datetime"; 
-        "Resources.subscription_name"="string"; 
-        "Resources.resource_name"="string";
-        "Resources.location"="string";
-        "Resources.current_value"="int64";
-        "Resources.limit"="int64";
-        "Resources.usage"="int64";
-    } -batchSize 300 -verbose
-
-}
 
