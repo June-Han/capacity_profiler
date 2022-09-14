@@ -69,8 +69,8 @@ else
     $col2 = New-PowerBIColumn -Name "subscription_name" -DataType String
     $col3 = New-PowerBIColumn -Name "resource_name" -DataType String
     $col4 = New-PowerBIColumn -Name "location" -DataType String
-    $col5 = New-PowerBIColumn -Name "current_value" -DataType String
-    $col6 = New-PowerBIColumn -Name "limit" -DataType String
+    $col5 = New-PowerBIColumn -Name "current_value" -DataType Int64
+    $col6 = New-PowerBIColumn -Name "limit" -DataType Int64
     $col7 = New-PowerBIColumn -Name "usage" -DataType String
     $table = New-PowerBITable -Name $tblName -Columns $col1, $col2, $col3, $col4, $col5, $col6, $col7
 
